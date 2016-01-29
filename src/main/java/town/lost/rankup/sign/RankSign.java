@@ -15,6 +15,7 @@ import town.lost.rankup.level.Level;
 /**
  * Created by peter on 27/01/16.
  */
+@SuppressWarnings("unused")
 public enum RankSign {
     ECHO {
         @Override
