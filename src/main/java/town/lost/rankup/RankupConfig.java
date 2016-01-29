@@ -56,20 +56,13 @@ public class RankupConfig {
         return levels.levelCost(levelStr);
     }
 
-    public String levelNeed(String levelStr) {
-        String[] parts = levelStr.split(" +", 2);
-        Level level = getLevel(parts[0]);
-        int sublevel = Integer.parseInt(parts[1]);
-        return levelNeed(level, sublevel);
-    }
-
     public String levelNeed(Level level, int subLevel) {
         if (subLevel > 1)
             return level.getName() + " " + (subLevel - 1);
         Level prev = level.getPrev();
         if (prev == null)
             return defaultLevel();
-        return prev + " " + prev.getMax();
+        return prev.getName() + " " + prev.getMax();
     }
 
     public Level getLevel(String level) {
@@ -85,6 +78,6 @@ public class RankupConfig {
     }
 
     public String nextLevel(String playerLevel) {
-        return null;
+        return levels.nextLevel(playerLevel);
     }
 }

@@ -28,4 +28,6 @@ public interface IRankup {
     String levelNeeded(Level level, int sublevel);
 
     String nextLevelFor(Player player);
+
+    String getLevelFor(Player player);
 }

@@ -53,8 +53,23 @@ public class Levels {
         Level level0 = getLevel(parts[0]);
         int sublevel0 = Integer.parseInt(parts[1]);
         // next sub-level
-        return level == level0 && sublevel == sublevel0 + 1
-                // next level after reaching max
-                || sublevel == 1 && level0.getPrev() == level && sublevel0 >= level.getMax();
+        if (level == level0 && sublevel == sublevel0 + 1) return true;
+        if (sublevel == 1 && level.getPrev() == level0 && sublevel0 >= level0.getMax()) return true;
+
+        System.out.println("a: " + (level == level0));
+        System.out.println("b: " + (sublevel == sublevel0 + 1));
+        System.out.println("c: " + (sublevel == 1));
+        System.out.println("d: " + (level.getPrev() == level0));
+        System.out.println("e: " + (sublevel0 >= level0.getMax()));
+        return false;
+    }
+
+    public String nextLevel(String playerLevel) {
+        String[] parts = playerLevel.split(" +", 2);
+        Level level0 = getLevel(parts[0]);
+        int sublevel0 = Integer.parseInt(parts[1]);
+        if (sublevel0 < level0.getMax())
+            return level0.getName() + " " + (sublevel0 + 1);
+        return level0.getNext().getName() + " 1";
     }
 }

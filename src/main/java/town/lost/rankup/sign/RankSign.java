@@ -67,6 +67,15 @@ public enum RankSign {
             updateBarter(block, sign, ru);
         }
     },
+    RANK {
+        public void onSignInteract(Block block, Sign sign, Player player, IRankup ru) {
+            String levelStr = ru.getLevelFor(player);
+            String nextLevelStr = ru.nextLevelFor(player);
+
+            System.out.println(player.getName() + " is " + levelStr + " level.");
+            player.sendMessage("§2You are " + levelStr + " level and the §6next level is " + nextLevelStr);
+        }
+    },
     TRAINING {
         @Override
         public void onSignInteract(Block block, Sign sign, Player player, IRankup ru) {
@@ -83,7 +92,7 @@ public enum RankSign {
             int sublevel = Integer.parseInt(line1[1]);
 
             if (!ru.canLevelUp(player, level, sublevel)) {
-                player.sendMessage("§4You need to be a " + ru.levelNeeded(level, sublevel));
+                player.sendMessage("§4You need to be a " + ru.levelNeeded(level, sublevel) + ", §2you are " + ru.getLevelFor(player));
                 return;
             }
 
@@ -134,6 +143,7 @@ public enum RankSign {
         Barter barter = ru.createBarterFor(block.getX() / 16, block.getZ() / 16);
         sign.setLine(1, barter.getBuyQ() + " " + barter.getBuy().getName());
         sign.setLine(2, barter.getSellQ() + " " + barter.getSell().getName());
+        System.out.println(barter);
         double ratio = barter.getRatio();
         sign.setLine(3, ratio > 1.6 ? "§2:D" : ratio > 1.2 ? "§2:)" :
                 ratio > 0.8 ? "§4:/" :

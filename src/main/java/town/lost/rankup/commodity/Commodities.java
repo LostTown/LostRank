@@ -72,7 +72,7 @@ public class Commodities {
                 continue;
             if (sell.getRarity() < 1 && sell.getRarity() < rand.nextFloat())
                 continue;
-            double buyP = 1.0 + sog.noise(mx, mz, buy.getId(), 0.5, 0.5, true) * 0.4;
+            double buyP = 1.2 + sog.noise(mx, mz, buy.getId(), 0.5, 0.5, true) * 0.5;
             double sellP = 1.0 + sog.noise(mx, mz, sell.getId(), 0.5, 0.5, true) * 0.4;
             int buyQ = (int) (size / buy.getBuyPrice() * buyP);
             int sellQ = (int) (size / sell.getSellPrice() * sellP);

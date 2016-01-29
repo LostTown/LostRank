@@ -29,6 +29,8 @@ public class UserConfig {
             File tmp = new File(configFile + ".tmp");
             yc.save(tmp);
             tmp.renameTo(configFile);
+            System.out.println("Saved to " + configFile + "\n" + yc.saveToString());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,5 +51,6 @@ public class UserConfig {
             configurationSection = yc.createSection(name);
         }
         configurationSection.set("level", level.getName() + " " + sublevel);
+        update();
     }
 }

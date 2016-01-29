@@ -14,6 +14,7 @@ public class Level {
     private final int cost;
     private final int increment;
     private final int max;
+    private Level next;
 
     public Level(String name, ConfigurationSection cs, Commodities commodities, Level prev) {
         this.name = name;
@@ -28,6 +29,13 @@ public class Level {
         if (commodity == null)
             throw new IllegalArgumentException("Could not find commodity " + commodityName + " for " + name);
         max = cs.getInt("max", 64);
+
+        if (prev != null && prev.next == null)
+            prev.next = this;
+    }
+
+    public Level getNext() {
+        return next;
     }
 
     public String getName() {

@@ -20,8 +20,8 @@ levels:
     commodity: Gold
     max: 4
   Redstoner:
-    cost: 10
-    increment: 2
+    cost: 6
+    increment: 3
     commodity: RedstoneBlock
     max: 4
   Adept:
@@ -150,15 +150,15 @@ commodities:
     data: 5
     sell: 1.5
     rarity: 0.5
-  PolishedGranite:
+  PolishGranite:
     material: STONE
     data: 2
     sell: 1.5
-  PolishedDiorite:
+  PolishDiorite:
     material: STONE
     data: 4
     sell: 1.5
-  PolishedAndesite:
+  PolishAndesite:
     material: STONE
     data: 6
     sell: 1.5
@@ -177,7 +177,7 @@ commodities:
     sell: 0.5
   BakedPotato:
     material: BAKED_POTATO
-    sell: 10
+    sell: 15
   Obsidian:
     material: OBSIDIAN
     sell: 50

@@ -82,7 +82,11 @@ public class Rankup extends JavaPlugin implements IRankup {
 
     @Override
     public String nextLevelFor(Player player) {
-        String playerLevel = users.getLevel(player, config.defaultLevel());
-        return config.nextLevel(playerLevel);
+        return config.nextLevel(getLevelFor(player));
+    }
+
+    @Override
+    public String getLevelFor(Player player) {
+        return users.getLevel(player, config.defaultLevel());
     }
 }
