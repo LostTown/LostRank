@@ -1,7 +1,7 @@
 levels:
   Starter:
-    cost: 48
-    increment: 4
+    cost: 8
+    increment: 16
     commodity: Seeds
     max: 3
   TorchBearer:

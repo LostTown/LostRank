@@ -72,7 +72,7 @@ public class Commodities {
                 continue;
             if (sell.getRarity() < 1 && sell.getRarity() < rand.nextFloat())
                 continue;
-            double buyP = 1.2 + sog.noise(mx, mz, buy.getId(), 0.5, 0.5, true) * 0.5;
+            double buyP = 1.1 + sog.noise(mx, mz, buy.getId(), 0.5, 0.5, true) * 0.5;
             double sellP = 1.0 + sog.noise(mx, mz, sell.getId(), 0.5, 0.5, true) * 0.4;
             int buyQ = (int) (size / buy.getBuyPrice() * buyP);
             int sellQ = (int) (size / sell.getSellPrice() * sellP);
@@ -91,9 +91,11 @@ public class Commodities {
             double buyV = buyQ * buy.getMidPrice();
             double sellV = sellQ * sell.getMidPrice();
             double ratio = Math.round(buyV / sellV * 1000) / 1e3;
-            if (ratio < 0.8 && i < 10)
+            if (ratio < 1.6 && i < 3)
                 continue;
-            if (ratio < 0.6 && i < 20)
+            if (ratio < 1.1 && i < 6)
+                continue;
+            if (ratio < 0.9 && i < 10)
                 continue;
             return new Barter(buyQ, buy, sellQ, sell, ratio);
         }
