@@ -35,14 +35,34 @@ levels:
     commodity: GoldIngot
     max: 5
   Master:
+    cost: 20
+    increment: 3
+    commodity: GoldIngot
+    max: 5
+  Professional:
+    cost: 40
+    increment: 4
+    commodity: GoldIngot
+    max: 5
+  Noble:
+    cost: 3
+    increment: 1
+    commodity: EmeraldBlock
+    max: 6
+  Captain:
     cost: 8
     increment: 2
-    commodity: Emerald
-    max: 5
+    commodity: EmeraldBlock
+    max: 6
+  General:
+    cost: 20
+    increment: 4
+    commodity: EmeraldBlock
+    max: 6
   Overlord:
-    cost: 4
+    cost: 6
     increment: 1
-    commodity: GoldBlock
+    commodity: Bedrock
     max: 100
 
 commodities:
@@ -138,12 +158,12 @@ commodities:
   Granite:
     material: STONE
     data: 1
-    sell: 1
+    sell: 1.5
     rarity: 0.5
   Diorite:
     material: STONE
     data: 3
-    sell: 1
+    sell: 1.5
     rarity: 0.5
   Andesite:
     material: STONE
@@ -153,18 +173,25 @@ commodities:
   PolishGranite:
     material: STONE
     data: 2
-    sell: 1.5
+    sell: 2
   PolishDiorite:
     material: STONE
     data: 4
-    sell: 1.5
+    sell: 2
   PolishAndesite:
     material: STONE
     data: 6
-    sell: 1.5
+    sell: 2
   Sandstone:
     material: SANDSTONE
     sell: 1.0
+  Sandstone:
+    material: SANDSTONE
+    sell: 1.0
+  SmoothSand:
+    material: SANDSTONE
+    data: 2
+    sell: 2.0
   Glass:
     material: GLASS
     sell: 3.0
@@ -215,5 +242,5 @@ commodities:
     rarity: 0.2
   Bedrock:
     material: BEDROCK
-    buy: 1000
+    buy: 10000
     rarity: 0.5

@@ -1,5 +1,6 @@
 package town.lost.rankup.sign;
 
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -36,13 +37,30 @@ public enum RankSign {
             }
         }
     },
+    FLY {
+        @Override
+        public void onSignInteract(Block block, Sign sign, Player player, IRankup ru) {
+            PlayerInventory inventory = player.getInventory();
+            String[] line1 = sign.getLine(1).split(" +", 2);
+            int toRemove = Integer.parseInt(line1[0]);
+            Commodity toRemoveComm = ru.getCommodity(line1[1]);
+            if (canRemove(inventory, toRemove, toRemoveComm)) {
+                remove(inventory, toRemove, toRemoveComm);
+                player.setAllowFlight(true);
+                player.sendMessage("Flying enabled §2Paid " + toRemove + " §6" + toRemoveComm.getName());
+            } else {
+                player.sendMessage("§4Not enough gold nuggets");
+            }
+        }
+    },
     BARTER {
         @Override
         public void onSignInteract(Block block, Sign sign, Player player, IRankup ru) {
-            if (sign.getLine(1).trim().isEmpty()) {
+            if (sign.getLine(1).trim().isEmpty() || player.isFlying()) {
                 updateBarter(block, sign, ru);
                 return;
             }
+
             PlayerInventory inventory = player.getInventory();
             String[] line1 = sign.getLine(1).split(" +", 2);
             String[] line2 = sign.getLine(2).split(" +", 2);
@@ -65,6 +83,25 @@ public enum RankSign {
                     + " for §6" + toRemove + " " + toRemoveComm.getName());
 
             updateBarter(block, sign, ru);
+        }
+    },
+    DAYTIME {
+        public void onSignInteract(Block block, Sign sign, Player player, IRankup ru) {
+            PlayerInventory inventory = player.getInventory();
+            String[] line1 = sign.getLine(1).split(" +", 2);
+            int toRemove = Integer.parseInt(line1[0]);
+            Commodity toRemoveComm = ru.getCommodity(line1[1]);
+            if (canRemove(inventory, toRemove, toRemoveComm)) {
+                remove(inventory, toRemove, toRemoveComm);
+                World world = player.getWorld();
+                long time = world.getTime();
+                time -= time % 24000;
+                time += 24000;
+                world.setTime(time);
+                player.sendMessage("Time set 0, §2Paid " + toRemove + " §6" + toRemoveComm.getName());
+            } else {
+                player.sendMessage("§4Not enough " + toRemoveComm.getName());
+            }
         }
     },
     RANK {
