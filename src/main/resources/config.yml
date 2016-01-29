@@ -1,0 +1,219 @@
+levels:
+  Starter:
+    cost: 48
+    increment: 4
+    commodity: Seeds
+    max: 3
+  TorchBearer:
+    cost: 32
+    increment: 10
+    commodity: Torch
+    max: 3
+  Miner:
+    cost: 24
+    increment: 12
+    commodity: Coal
+    max: 3
+  GoldDigger:
+    cost: 16
+    increment: 4
+    commodity: Gold
+    max: 4
+  Redstoner:
+    cost: 10
+    increment: 2
+    commodity: RedstoneBlock
+    max: 4
+  Adept:
+    cost: 4
+    increment: 1
+    commodity: GoldIngot
+    max: 5
+  Expert:
+    cost: 8
+    increment: 2
+    commodity: GoldIngot
+    max: 5
+  Master:
+    cost: 8
+    increment: 2
+    commodity: Emerald
+    max: 5
+  Overlord:
+    cost: 4
+    increment: 1
+    commodity: GoldBlock
+    max: 100
+
+commodities:
+  # currencies
+  Seeds:
+    material: SEEDS
+    sell: 1.5
+    buy: 2.0
+    currency: true
+  Torch:
+    material: TORCH
+    sell: 4.0
+    buy: 5.0
+    currency: true
+  Coal:
+    material: COAL
+    sell: 12.0
+    buy: 15.0
+    currency: true
+  Gold:
+    material: GOLD_NUGGET
+    sell: 10.0
+    buy: 11.0
+    currency: true
+  RedstoneBlock:
+    material: REDSTONE_BLOCK
+    sell: 24.0
+    buy: 27.0
+    currency: true
+  GoldIngot:
+    material: GOLD_INGOT
+    sell: 90.0
+    buy: 100.0
+    currency: true
+  GoldBlock:
+    material: GOLD_BLOCK
+    sell: 800.0
+    buy: 900.0
+    currency: true
+  Emerald:
+    material: EMERALD
+    sell: 200
+    buy: 220
+    rarity: 0.5
+    currency: true
+  EmeraldBlock:
+    material: EMERALD_BLOCK
+    sell: 1800
+    buy: 2000
+    rarity: 0.5
+    currency: true
+
+  # buy-sell
+  Sugar:
+    material: SUGAR
+    sell: 7.0
+    buy: 10.0
+    rarity: 0.5
+  Apple:
+    material: APPLE
+    sell: 7.0
+    buy: 10.0
+    rarity: 0.5
+    max: 32
+  IronIngot:
+    material: IRON_INGOT
+    sell: 30.0
+    buy: 40.0
+  Brick:
+    material: BRICK
+    sell: 15.0
+    buy: 21.0
+    rarity: 0.5
+  XP:
+    material: EXP_BOTTLE
+    sell: 30.0
+    buy: 40.0
+    rarity: 0.5
+  Book:
+    material: BOOK
+    sell: 35.0
+    buy: 45.0
+    rarity: 0.5
+
+  # sell items
+  Cobblestone:
+    material: COBBLESTONE
+    sell: 0.5
+  Stone:
+    material: STONE
+    data: 1
+    sell: 1.5
+  Granite:
+    material: STONE
+    data: 1
+    sell: 1
+    rarity: 0.5
+  Diorite:
+    material: STONE
+    data: 3
+    sell: 1
+    rarity: 0.5
+  Andesite:
+    material: STONE
+    data: 5
+    sell: 1.5
+    rarity: 0.5
+  PolishedGranite:
+    material: STONE
+    data: 2
+    sell: 1.5
+  PolishedDiorite:
+    material: STONE
+    data: 4
+    sell: 1.5
+  PolishedAndesite:
+    material: STONE
+    data: 6
+    sell: 1.5
+  Sandstone:
+    material: SANDSTONE
+    sell: 1.0
+  Glass:
+    material: GLASS
+    sell: 3.0
+    rarity: 0.5
+  Wood:
+    material: WOOD
+    sell: 0.5
+  Gravel:
+    material: GRAVEL
+    sell: 0.5
+  BakedPotato:
+    material: BAKED_POTATO
+    sell: 10
+  Obsidian:
+    material: OBSIDIAN
+    sell: 50
+    buy: 130
+    max: 16
+
+  # buy items
+  Fence:
+    material: FENCE
+    buy: 2
+  Potato:
+    material: POTATO_ITEM
+    buy: 20
+    max: 32
+  Fish:
+    material: RAW_FISH
+    buy: 5.0
+    max: 32
+  Bone:
+    material: BONE
+    buy: 10
+    max: 32
+  Rails:
+    material: RAILS
+    buy: 22
+    rarity: 0.5
+  Compass:
+    material: COMPASS
+    buy: 22
+    rarity: 0.5
+    max: 1
+  PowerRail:
+    material: POWERED_RAIL
+    buy: 65
+    rarity: 0.2
+  Bedrock:
+    material: BEDROCK
+    buy: 1000
+    rarity: 0.5

@@ -1,0 +1,18 @@
+# This determines the command prefix when there are conflicts (/name:home, /name:help, etc.)
+name: LostRankup
+main: town.lost.rankup.Rankup
+# Note to developers: This next line cannot change, or the automatic versioning system will break.
+version: 0.1
+website: http://github.com/LostTown/LostRankup
+description: Rank system with Signs.
+authors: [Peter Lawrey]
+commands:
+  lr:
+    description: Checks your Lost Rankup status
+    usage: /<command> [player]
+    aliases: [loastrank]
+
+permissions:
+  lost.rankup.*:
+    default: op
+    description: Give players with op everything by default
