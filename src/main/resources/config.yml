@@ -133,12 +133,11 @@ commodities:
     buy: 40.0
   Brick:
     material: BRICK
-    sell: 15.0
-    buy: 21.0
-    rarity: 0.5
+    sell: 25.0
+    buy: 30.0
   XP:
     material: EXP_BOTTLE
-    sell: 30.0
+    sell: 35.0
     buy: 40.0
     rarity: 0.5
   Book:
@@ -153,7 +152,7 @@ commodities:
     sell: 0.5
   Stone:
     material: STONE
-    data: 1
+    data: 0
     sell: 1.5
   Granite:
     material: STONE
@@ -182,20 +181,19 @@ commodities:
     material: STONE
     data: 6
     sell: 2
-  Sandstone:
-    material: SANDSTONE
+  Sand:
+    material: SAND
     sell: 1.0
   Sandstone:
     material: SANDSTONE
-    sell: 1.0
+    sell: 4.0
   SmoothSand:
     material: SANDSTONE
     data: 2
-    sell: 2.0
+    sell: 6.0
   Glass:
     material: GLASS
     sell: 3.0
-    rarity: 0.5
   Wood:
     material: WOOD
     sell: 0.5

@@ -51,7 +51,7 @@ public class Commodities {
     }
 
     public Barter barterAt(int mx, int mz) {
-        int maxSize = Math.min(10000, 20 + Math.abs(mx) + Math.abs(mz)) * 3;
+        int maxSize = Math.min(10000, 100 + Math.abs(mx) + Math.abs(mz)) / 5;
         for (int i = 0; i < 100; i++) {
             int size = maxSize;
             Commodity buy;
