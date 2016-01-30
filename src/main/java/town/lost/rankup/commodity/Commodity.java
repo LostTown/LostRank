@@ -54,9 +54,9 @@ public class Commodity {
 
     public double getMidPrice() {
         if (Double.isNaN(buyPrice))
-            return sellPrice / 2;
+            return sellPrice;
         if (Double.isNaN(sellPrice))
-            return buyPrice;
+            return buyPrice * 0.6;
         return (buyPrice + sellPrice) / 2;
     }
 

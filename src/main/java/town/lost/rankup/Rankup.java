@@ -50,8 +50,8 @@ public class Rankup extends JavaPlugin implements IRankup {
     }
 
     @Override
-    public Barter createBarterFor(int mx, int mz) {
-        return config.getCommodities().barterAt(mx, mz);
+    public Barter createBarterFor(int mx, int mz, int row, boolean buy) {
+        return config.getCommodities().barterAt(mx, mz, row, buy);
     }
 
     @Override

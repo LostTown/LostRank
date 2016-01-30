@@ -1,7 +1,9 @@
 package town.lost.rankup.sign;
 
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -178,14 +180,21 @@ public enum RankSign {
     }
 
     static void updateBarter(Block block, Sign sign, IRankup ru) {
-        Barter barter = ru.createBarterFor(block.getX() / 16, block.getZ() / 16);
+        int row = 0;
+        if (block.getRelative(BlockFace.DOWN).getType() != Material.WOOD) {
+            row++;
+            if (block.getRelative(0, -2, 0).getType() != Material.WOOD) {
+                row++;
+            }
+        }
+        Barter barter = ru.createBarterFor(block.getX() / 16, block.getZ() / 16, row, (sign.getRawData() & 1) == 0);
         sign.setLine(1, barter.getBuyQ() + " " + barter.getBuy().getName());
         sign.setLine(2, barter.getSellQ() + " " + barter.getSell().getName());
         System.out.println(barter);
         double ratio = barter.getRatio();
-        sign.setLine(3, ratio > 1.6 ? "§2:D" : ratio > 1.2 ? "§2:)" :
-                ratio > 0.8 ? "§4:/" :
-                        ratio > 0.5 ? "§6:(" : "§68-(|");
+        sign.setLine(3, ratio > 1.4 ? "§2:D" : ratio > 1. ? "§2:)" :
+                ratio > 0.7 ? "§4:/" :
+                        ratio > 0.4 ? "§6:(" : "§68-(|");
         sign.update();
     }
 

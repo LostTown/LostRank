@@ -31,7 +31,7 @@ public class RankupConfigTest {
             int z = x;
             System.out.println("x: " + x + ", z: " + z);
             for (int i = 0; i < 10; i++) {
-                Barter x1 = commodities.barterAt(x + i, z + i);
+                Barter x1 = commodities.barterAt(x + i, z + i, i / 4, i < 5);
                 System.out.println(x1);
                 totalRatio += x1.getRatio();
                 count++;

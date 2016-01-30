@@ -18,7 +18,7 @@ public class Commodities {
     private final Random rand = new Random();
 
     public Commodities(YamlConfiguration yc) {
-        sog.setScale(1.0 / 256);
+        sog.setScale(1.0 / 64);
         sog.setWScale(1.0 / 2);
         ConfigurationSection commoditiesConf = yc.getConfigurationSection("commodities");
 
@@ -50,15 +50,15 @@ public class Commodities {
         return forCurrency;
     }
 
-    public Barter barterAt(int mx, int mz) {
-        int maxSize = Math.min(10000, 100 + Math.abs(mx) + Math.abs(mz)) / 5;
+    public Barter barterAt(int mx, int mz, int row, boolean buy0) {
+        int maxSize = Math.min(10000, (Math.abs(mx) + Math.abs(mz)) / 5);
         for (int i = 0; i < 100; i++) {
-            int size = maxSize;
+            int size = rand.nextInt(maxSize + 20) + 5;
             Commodity buy;
             Commodity sell;
-            int maxCurrency = (Math.abs(mx) + Math.abs(mz)) / 50 + 2;
-            Commodity currency = forCurrency.get(Math.min(maxCurrency, rand.nextInt(forCurrency.size())));
-            if (rand.nextBoolean()) {
+            int maxCurrency = (Math.abs(mx) + Math.abs(mz)) / 20 + row;
+            Commodity currency = forCurrency.get(rand.nextInt(1 + Math.min(maxCurrency, forCurrency.size() - 1)));
+            if (buy0) {
                 // buying
                 buy = forBuying.get(rand.nextInt(forBuying.size()));
                 sell = currency;
@@ -72,8 +72,8 @@ public class Commodities {
                 continue;
             if (sell.getRarity() < 1 && sell.getRarity() < rand.nextFloat())
                 continue;
-            double buyP = 1.1 + sog.noise(mx, mz, buy.getId(), 0.5, 0.5, true) * 0.5;
-            double sellP = 1.0 + sog.noise(mx, mz, sell.getId(), 0.5, 0.5, true) * 0.4;
+            double buyP = 1.1 + sog.noise(mx, mz, buy.getId(), 0.5, 0.5, true) * 0.4;
+            double sellP = 1.0 + sog.noise(mx, mz, sell.getId(), 0.5, 0.5, true) * 0.3;
             int buyQ = (int) (size / buy.getBuyPrice() * buyP);
             int sellQ = (int) (size / sell.getSellPrice() * sellP);
             while (buyQ > buy.getMax() || (buyQ > 64 && sellQ > 64)) {
@@ -91,11 +91,11 @@ public class Commodities {
             double buyV = buyQ * buy.getMidPrice();
             double sellV = sellQ * sell.getMidPrice();
             double ratio = Math.round(buyV / sellV * 1000) / 1e3;
-            if (ratio < 1.6 && i < 3)
+            if (ratio < 1.4 && i < 3)
                 continue;
-            if (ratio < 1.1 && i < 6)
+            if (ratio < 1. && i < 6)
                 continue;
-            if (ratio < 0.9 && i < 10)
+            if (ratio < 0.8 && i < 10)
                 continue;
             return new Barter(buyQ, buy, sellQ, sell, ratio);
         }

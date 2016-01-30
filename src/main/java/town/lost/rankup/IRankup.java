@@ -15,7 +15,7 @@ public interface IRankup {
 
     Commodity getCommodity(String name);
 
-    Barter createBarterFor(int mx, int mz);
+    Barter createBarterFor(int mx, int mz, int row, boolean buy);
 
     String levelCost(String levelStr);
 
