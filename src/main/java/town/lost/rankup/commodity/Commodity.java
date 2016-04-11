@@ -6,13 +6,17 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.material.MaterialData;
 import town.lost.rankup.enchantments.Enchantments;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
  * Created by peter on 28/01/16.
  */
 public class Commodity {
+    private static final Set<String> KEYS = new HashSet<>(Arrays.asList("material,data,buy,sell,max,rarity,currency".split(",")));
     private final String name;
     private final int id;
     private final MaterialData materialData;
@@ -39,6 +43,11 @@ public class Commodity {
         enchant = Enchantments.ENCHANTMENTS.keySet().stream()
                 .filter(cs::isLong)
                 .collect(Collectors.toMap(Enchantments::getEnchantment, cs::getLong));
+        for (String s : cs.getKeys(false)) {
+            if (!Enchantments.ENCHANTMENTS.keySet().contains(s) && !KEYS.contains(s)) {
+                System.out.println("Commodity: " + name + " has an attribute which is ignored: " + s);
+            }
+        }
     }
 
     public String getName() {
