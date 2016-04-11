@@ -29,6 +29,11 @@ levels:
     increment: 12
     commodity: Coal
     max: 4
+    rewards:
+     - 1 StonePickaxeU2
+     - 1 StonePickaxeE2
+     - 1 IronPickaxeE2
+     - 16 TNT
 #1.iron boots unbreaking 2
 #2.iron helmet protection 1
 #3.gold chestplate unbreaking 4 protection 2
@@ -38,15 +43,21 @@ levels:
     increment: 4
     commodity: Gold
     max: 4
-#1. 50 redstone torch
-#2. 64  Rails
-#3. 30 Power Rails
-#4. 20 Dispenser 5 Steak
+    rewards:
+    - 1 IronBootsU2
+    - 1 IronHelmetP1
+    - 1 GoldChestplateU4P2
+    - 1 GoldLeggingsU5P4
   Redstoner:
     cost: 6
     increment: 3
     commodity: RedstoneBlock
     max: 4
+    rewards:
+     - 50 RedstoneTorch
+     - 64 Rails
+     - 30 PowerRail
+     - 20 Dispenser
 #1.9 Obsidian
 #2.10 Bookshelves
 #3.Iron Chestplate protection 3 unbreaking 1
@@ -57,6 +68,12 @@ levels:
     increment: 4
     commodity: GoldIngot
     max: 5
+    rewards:
+    - 9 Obsidian
+    - 10 Bookshelf
+    - 1 IronChestplateP3U1
+    - 1.BowP1
+    - 1.DiamondPickaxeE2
 #1.5 Diamonds
 #2.8 Chests
 #3.10 Obsidian
@@ -66,6 +83,11 @@ levels:
     increment: 6
     commodity: GoldIngot
     max: 4
+    rewards:
+    - 5 Diamond
+    - 8 Chest
+    - 10 obsidian
+    - 1 IronLeggingsP3
 #1.
 #2.
 #3.
@@ -75,15 +97,21 @@ levels:
     increment: 5
     commodity: GoldIngot
     max: 4
-#1.64 Wood Logs
-#2.
-#3.
-#4./fly
+    rewards
+    - 1 DiamondHelmetP1
+    - 1 DiamondBootsP1
+    - 1 DiamondLeggingsP1
+    - 1 DiamondChestplateP1
   Lord:
     cost: 40
     increment: 4
     commodity: GoldIngot
     max: 4
+    rewards:
+    - 64 Wood
+    - 64 Xp Bottle
+    - 
+    - /fly
 #1.Steve Head protection 15
 #2.Black Leather Boots protection 10 unbreaking 10
 #3.Black Leather Leggings protection 10 unbreaking 10
@@ -350,3 +378,57 @@ commodities:
   TNT:
     material: TNT
     buy: 100.0
+  RedstoneTorch:
+    material: REDSTONE_TORCH
+    buy: 4.0
+  Dispenser:
+    material: DISPENSER
+    buy: 20.0
+  StonePickaxeU2:
+    material: STONE_PICKAXE
+    unbreaking: 2
+  StonePickaxeE2:
+    material: STONE_PICKAXE
+    efficiency: 2
+  IronPickaxeE2:
+    material: IRON_PICKAXE
+    efficiency: 2
+  IronBootsU2
+    material:IRON_BOOTS
+  IronHelmetP1
+    material:IRON_HELMET
+  IronChestplateP3U1
+    material:IRON_CHESTPLATE
+    Protection:3
+    Unbreaking:1
+  GoldChestplateU4P2
+    material:GOLD_CHESTPLATE
+    Unbreaking:4
+    Protection:2
+  DiamondPickaxeE2
+    material:DIAMOND_PICKAXE
+    Efficiency:2
+  BowP1
+    material:BOW
+    Power:1
+  IronLeggingsP3
+    material:IRON_CHESTPLATE
+    Protection:3
+  DiamondHelmetP1
+    material:DIAMONDHELMET
+    Protection:1
+  DiamondBootsP1
+    material:DIAMONDBOOTS
+    Protection:1
+  DiamondLeggingsP1
+    material:DIAMONDLEGGINGS
+    Protection:1
+  DiamondChestplateP1
+    material:DIAMONDCHESTPLATE
+    Protection:1
+  Wood
+    material:LOG
+    sell:6.0
+    buy:8.0
+  XPBottle
+    material:EXPERIENCEBOTTLE
