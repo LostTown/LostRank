@@ -32,22 +32,19 @@ levels:
     rewards:
      - 1 StonePickaxeU2
      - 1 StonePickaxeE2
-     - 1 IronPickaxeE2
+     - 1 IronPickaxe
      - 16 TNT
-#1.iron boots unbreaking 2
-#2.iron helmet protection 1
-#3.gold chestplate unbreaking 4 protection 2
-#4.gold leggings unbreaking 5 protection 4
+
   GoldDigger:
     cost: 16
     increment: 4
     commodity: Gold
     max: 4
     rewards:
-    - 1 IronBootsU2
-    - 1 IronHelmetP1
-    - 1 GoldChestplateU4P2
-    - 1 GoldLeggingsU5P4
+    - 1 IronBoots
+    - 1 IronHelmet
+    - 1 GoldChestplate
+    - 1 GoldLeggings
   Redstoner:
     cost: 6
     increment: 3
@@ -58,11 +55,6 @@ levels:
      - 64 Rails
      - 30 PowerRail
      - 20 Dispenser
-#1.9 Obsidian
-#2.10 Bookshelves
-#3.Iron Chestplate protection 3 unbreaking 1
-#4.Bow power 1, 30 arrows
-#5.Diamond Pickaxe Efficiency 2
   Adept:
     cost: 7
     increment: 4
@@ -71,13 +63,9 @@ levels:
     rewards:
     - 9 Obsidian
     - 10 Bookshelf
-    - 1 IronChestplateP3U1
-    - 1.BowP1
-    - 1.DiamondPickaxeE2
-#1.5 Diamonds
-#2.8 Chests
-#3.10 Obsidian
-#4.iron leggings protection 3
+    - 1 IronChestplate
+    - 1.Bow
+    - 1.DiamondPickaxe
   Expert:
     cost: 10
     increment: 6
@@ -87,21 +75,17 @@ levels:
     - 5 Diamond
     - 8 Chest
     - 10 obsidian
-    - 1 IronLeggingsP3
-#1.
-#2.
-#3.
-#4.
+    - 1 IronLeggings
   Master:
     cost: 20
     increment: 5
     commodity: GoldIngot
     max: 4
     rewards:
-    - 1 DiamondHelmetP1
-    - 1 DiamondBootsP1
-    - 1 DiamondLeggingsP1
-    - 1 DiamondChestplateP1
+    - 1 DiamondHelmet
+    - 1 DiamondBoots
+    - 1 DiamondLeggings
+    - 1 DiamondChestplate
   Lord:
     cost: 40
     increment: 4
@@ -109,40 +93,41 @@ levels:
     max: 4
     rewards:
     - 64 Wood
-    - 64 Xp Bottle
-    -
-    - /fly
-#1.Steve Head protection 15
-#2.Black Leather Boots protection 10 unbreaking 10
-#3.Black Leather Leggings protection 10 unbreaking 10
-#4.Black Leather Tunic protection 10 unbreaking 10
-#5.Lever thats called a microphone Sharpness 10 Fire Aspect 1
+    - 64 XpBottle
+    - 1 Shield
+    - 15 emerald
   President:
     cost: 3
     increment: 1
     commodity: EmeraldBlock
     max: 5
-#1.
-#2.
-#3.
-#4.
-#5.
+    rewards:
+    - 1 PresidentHead
+    - 1 BlackShoes
+    - 1 BlackTrousers    
+    - 1 BlackSuit
+    - 1 Microphone
   God:
     cost: 8
     increment: 2
     commodity: EmeraldBlock
     max: 5
-#1.
-#2.
-#3.
-#4.
-#5.
-#6.gamemode 1
+    reward:
+    - 1 GodlyPickaxe
+    - 1 GodlyAxe
+    - 1 GodlyShovel
+    - 1 GodlyHoe
+    - 1 GodlyShears
   Titan:
     cost: 20
     increment: 4
     commodity: EmeraldBlock
-    max: 6
+    max: 5
+    - 1 TitanHelmet
+    - 1 TitanBoots
+    - 1 TitanLeggings
+    - 1 TitanChestplate
+    - 1 TheUltimateItem
   Overlord:
     cost: 6
     increment: 1
@@ -399,40 +384,115 @@ commodities:
     material: IRON_HELMET
   IronChestplateP3U1:
     material: IRON_CHESTPLATE
-    Protection: 3
-    Unbreaking: 1
-  GoldChestplateU4P2
-    material:GOLD_CHESTPLATE
-    Unbreaking:4
-    Protection:2
-  DiamondPickaxeE2
-    material:DIAMOND_PICKAXE
-    Efficiency:2
-  BowP1
-    material:BOW
-    Power:1
-  IronLeggingsP3
-    material:IRON_CHESTPLATE
-    Protection:3
-  DiamondHelmetP1
-    material:DIAMONDHELMET
-    Protection:1
-  DiamondBootsP1
+    protection: 3
+    unbreaking: 1
+  GoldChestplateU4P2:
+    material: GOLD_CHESTPLATE
+    unbreaking: 4
+    protection: 2
+  DiamondPickaxeE2:
+    material: DIAMOND_PICKAXE
+    efficiency: 2
+  BowP1:
+    material: BOW
+    power: 1
+  IronLeggingsP3:
+    material: IRON_CHESTPLATE
+    protection: 3
+  DiamondHelmetP1:
+    material: DIAMONDHELMET
+    protection: 1
+  DiamondBootsP1:
     material:DIAMONDBOOTS
+    protection: 1
+  DiamondLeggingsP1:
+    material: DIAMONDLEGGINGS
     Protection:1
-  DiamondLeggingsP1
-    material:DIAMONDLEGGINGS
-    Protection:1
-  DiamondChestplateP1
-    material:DIAMONDCHESTPLATE
-    Protection:1
-  Wood
-    material:LOG
-    sell:6.0
-    buy:8.0
-  XPBottle
-    material:EXPERIENCEBOTTLE
-
+  DiamondChestplateP1:
+    material: DIAMONDCHESTPLATE
+    Protection: 1
+  Wood:
+    material: LOG
+    sell: 6.0
+    buy: 8.0
+  XPBottle:
+    material: EXPERIENCEBOTTLE:
+  BlackSuit:
+    material:LEATHERCHESTPLATE:
+    protection: 10
+    unbreaking: 10
+  BlackSuit:
+    material:LEATHERHELMET:
+    protection: 10
+    unbreaking: 10    
+  BlackSuit:
+    material:LEATHERLEGGINGS:
+    protection: 10
+    unbreaking: 10
+  BlackSuit:
+    material:LEATHERBOOTS:
+    protection: 10
+    unbreaking: 10
+  Microphone:
+    material:LEVER
+    sharpness: 10
+    fire_aspect: 1
+  IronChestplateP3:
+    material: IRON_CHESTPLATE
+    protection: 3
+  GoldLeggings:
+    material: GOLDLEGGINGS
+    unbreaking: 4
+    protection: 2
+  TheUltimateItem:
+    material: DEADBUSH
+  TitanHelmet:
+    material: DIAMONDHELMET
+    protection:15
+    unbreaking: 15
+    aqua_affinity: 5
+  TitanChestplate:
+    material: DIAMONDCHESTPLATE
+    protection:15
+    unbreaking: 15
+  TitanLeggings:
+    material: DIAMONDLEGGINGS
+    protection:15
+    unbreaking: 15
+  TitanBoots:
+    material: DIAMONDBOOTS
+    protection:15
+    unbreaking: 15
+    depth_strider: 5
+  GodlyShears:
+    material:SHEARS
+    unbreaking:7
+    fortune:5
+    efficiency: 10
+  GodlyAxe:
+    material:DIAMONDAXE
+    unbreaking:7
+    fortune:5
+    efficiency: 10
+  GodlyHoe:
+    material:DIAMONDHOE
+    unbreaking:7
+    fortune:5
+    efficiency: 10
+  GodlyShovel:
+    material:DIAMONDSHOVEL
+    unbreaking:7
+    fortune:5
+    efficiency:10
+  GodlyPickaxe:
+    material:DIAMONDPICKAXE
+    unbreaking:7
+    fortune:5
+  Emerald:
+    material:EMERALD
+    buy: 350
+    sell:400
+    rarity: 0.1
 ## enchantments ##
 # protection: 1 - 4
 # fire_protection: 1 - 4
