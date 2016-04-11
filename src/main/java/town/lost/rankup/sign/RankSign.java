@@ -13,6 +13,7 @@ import town.lost.rankup.IRankup;
 import town.lost.rankup.commodity.Barter;
 import town.lost.rankup.commodity.Commodity;
 import town.lost.rankup.level.Level;
+import town.lost.rankup.level.Reward;
 
 /**
  * Created by peter on 27/01/16.
@@ -144,12 +145,25 @@ public enum RankSign {
                 return;
             }
 
+            Reward reward = level.getReward(sublevel);
+            if (reward.getNumber() > 0) {
+                if (!canAdd(inventory, reward.getNumber(), reward.getCommodity()))
+                    player.sendMessage("§4Not enough space for the reward of " + reward.getCommodity().getName());
+                return;
+            }
+
             remove(inventory, toRemove, toRemoveComm);
             ru.levelUp(player, level, sublevel);
 
             player.chat("§2" + player.getName()
                     + " leveled up to " + sign.getLine(1)
                     + " for §6" + toRemove + " " + toRemoveComm.getName());
+
+            if (reward.getNumber() > 0) {
+                add(inventory, reward.getNumber(), reward.getCommodity());
+                player.chat("§2" + player.getName()
+                        + " has been rewarded with §6" + reward.getNumber() + " " + reward.getCommodity().getName());
+            }
         }
     },
     PURCHASE {
@@ -274,7 +288,7 @@ public enum RankSign {
             ItemStack is = new ItemStack(materialData.getItemType());
             is.setData(materialData);
 
-            int free = Math.min(64, toAdd);
+            int free = Math.min(99, toAdd);
             if (free > 0) {
                 toAdd -= free;
                 is.setAmount(free);

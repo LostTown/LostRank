@@ -1,60 +1,115 @@
 levels:
   Starter:
-    cost: 8
-    increment: 16
+    cost: 6
+    increment: 2
     commodity: Seeds
-    max: 3
+    max: 6
+    rewards:
+     - 0 Seeds
+     - 10 Wheat
+     - 5 Bread
+     - 5 BeetrootSeeds
+     - 33 Wheat
+     - 16 Carrot
+#1.5 glowstone
+#2.9 cooked chicken
+#3.15 Iron ore
   TorchBearer:
     cost: 32
     increment: 10
     commodity: Torch
     max: 3
+#1.1 stone pickaxe with unbreaking 1
+#2.1 stone pickaxe efficiency 1
+#3.1 iron pick with efficiency 2
+#4.16 TNT
   Miner:
     cost: 24
     increment: 12
     commodity: Coal
-    max: 3
+    max: 4
+#1.iron boots unbreaking 2
+#2.iron helmet protection 1
+#3.gold chestplate unbreaking 4 protection 2
+#4.gold leggings unbreaking 5 protection 4
   GoldDigger:
     cost: 16
     increment: 4
     commodity: Gold
     max: 4
+#1. 50 redstone torch
+#2. 64  Rails
+#3. 30 Power Rails
+#4. 20 Dispenser 5 Steak
   Redstoner:
     cost: 6
     increment: 3
     commodity: RedstoneBlock
     max: 4
+#1.9 Obsidian
+#2.10 Bookshelves
+#3.Iron Chestplate protection 3 unbreaking 1
+#4.Bow power 1, 30 arrows
+#5.Diamond Pickaxe Efficiency 2
   Adept:
-    cost: 4
-    increment: 1
-    commodity: GoldIngot
-    max: 5
-  Expert:
-    cost: 8
-    increment: 2
-    commodity: GoldIngot
-    max: 5
-  Master:
-    cost: 20
-    increment: 3
-    commodity: GoldIngot
-    max: 5
-  Professional:
-    cost: 40
+    cost: 7
     increment: 4
     commodity: GoldIngot
     max: 5
-  Noble:
+#1.5 Diamonds
+#2.8 Chests
+#3.10 Obsidian
+#4.iron leggings protection 3
+  Expert:
+    cost: 10
+    increment: 6
+    commodity: GoldIngot
+    max: 4
+#1.
+#2.
+#3.
+#4.
+  Master:
+    cost: 20
+    increment: 5
+    commodity: GoldIngot
+    max: 4
+#1.64 Wood Logs
+#2.
+#3.
+#4./fly
+  Lord:
+    cost: 40
+    increment: 4
+    commodity: GoldIngot
+    max: 4
+#1.Steve Head protection 15
+#2.Black Leather Boots protection 10 unbreaking 10
+#3.Black Leather Leggings protection 10 unbreaking 10
+#4.Black Leather Tunic protection 10 unbreaking 10
+#5.Lever thats called a microphone Sharpness 10 Fire Aspect 1
+  President:
     cost: 3
     increment: 1
     commodity: EmeraldBlock
-    max: 6
-  Captain:
+    max: 5
+#1.
+#2.
+#3.
+#4.
+#5.
+  God:
     cost: 8
     increment: 2
     commodity: EmeraldBlock
-    max: 6
-  General:
+    max: 5
+#1.
+#2.
+#3.
+#4.
+#5.
+#6.gamemode 1
+  Titan:
     cost: 20
     increment: 4
     commodity: EmeraldBlock
@@ -69,8 +124,8 @@ commodities:
   # currencies
   Seeds:
     material: SEEDS
-    sell: 3.0
-    buy: 2.0
+    sell: 2.5
+    buy: 3.0
     currency: true
   Torch:
     material: TORCH
@@ -89,8 +144,8 @@ commodities:
     currency: true
   RedstoneBlock:
     material: REDSTONE_BLOCK
-    sell: 24.0
-    buy: 27.0
+    sell: 50.0
+    buy: 60.0
     currency: true
   GoldIngot:
     material: GOLD_INGOT
@@ -116,10 +171,26 @@ commodities:
     currency: true
 
   # buy-sell
+  Wheat:
+    material: WHEAT
+    sell: 2.5
+    buy: 3.0
+  Carrot:
+    material: CARROT_ITEM
+    sell: 1.5
+    buy: 2.0
+  BeetrootSeeds:
+    material: BEETROOT_SEEDS
+    sell: 1.0
+    buy: 1.2
+  Beetroot:
+    material: BEETROOT
+    sell: 0.5
+    buy: 0.7
   Sugar:
     material: SUGAR
-    sell: 7.0
-    buy: 10.0
+    sell: 4.5
+    buy: 5.0
     rarity: 0.5
   Bone:
     material: BONE
@@ -158,6 +229,10 @@ commodities:
     material: STONE
     data: 0
     sell: 1.5
+  Fence:
+    material: FENCE
+    sell: 1.5
+    rarity: 0.5
   Granite:
     material: STONE
     data: 1
@@ -185,9 +260,13 @@ commodities:
     material: STONE
     data: 6
     sell: 2
+  Fence:
+    material: FENCE
+    sell: 1.5
+    rarity: 0.5
   RottenFlesh:
     material: ROTTEN_FLESH
-    sell: 20
+    sell: 10
   EnderPearl:
     material: ENDER_PEARL
     sell: 30
@@ -220,11 +299,9 @@ commodities:
     max: 16
 
   # buy items
-  Fence:
-    material: FENCE
-    sell: 1.5
-    buy: 2
-    rarity: 0.5
+  Bread:
+    material: BREAD
+    buy: 9.0
   Potato:
     material: POTATO_ITEM
     buy: 20

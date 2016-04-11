@@ -4,6 +4,10 @@ import org.bukkit.configuration.ConfigurationSection;
 import town.lost.rankup.commodity.Commodities;
 import town.lost.rankup.commodity.Commodity;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Created by peter on 29/01/16.
  */
@@ -14,6 +18,7 @@ public class Level {
     private final int cost;
     private final int increment;
     private final int max;
+    private final List<Reward> rewards;
     private Level next;
 
     public Level(String name, ConfigurationSection cs, Commodities commodities, Level prev) {
@@ -29,6 +34,12 @@ public class Level {
         if (commodity == null)
             throw new IllegalArgumentException("Could not find commodity " + commodityName + " for " + name);
         max = cs.getInt("max", 64);
+
+        if (cs.isList("rewards")) {
+            rewards = cs.getStringList("rewards").stream().map(s -> Reward.parse(s, commodities)).collect(Collectors.toList());
+        } else {
+            rewards = Collections.emptyList();
+        }
 
         if (prev != null && prev.next == null)
             prev.next = this;
@@ -48,6 +59,10 @@ public class Level {
 
     public Commodity getCommodity() {
         return commodity;
+    }
+
+    public Reward getReward(int sublevel) {
+        return sublevel < rewards.size() ? rewards.get(sublevel) : Reward.NONE;
     }
 
     public int getCost() {
