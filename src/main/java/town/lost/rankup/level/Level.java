@@ -62,7 +62,7 @@ public class Level {
     }
 
     public Reward getReward(int sublevel) {
-        return sublevel < rewards.size() ? rewards.get(sublevel) : Reward.NONE;
+        return sublevel <= rewards.size() ? rewards.get(sublevel - 1) : Reward.NONE;
     }
 
     public int getCost() {

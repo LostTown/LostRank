@@ -5,6 +5,7 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -14,6 +15,8 @@ import town.lost.rankup.commodity.Barter;
 import town.lost.rankup.commodity.Commodity;
 import town.lost.rankup.level.Level;
 import town.lost.rankup.level.Reward;
+
+import java.util.Map;
 
 /**
  * Created by peter on 27/01/16.
@@ -120,11 +123,12 @@ public enum RankSign {
     TRAINING {
         @Override
         public void onSignInteract(Block block, Sign sign, Player player, IRankup ru) {
-            if (sign.getLine(1).trim().isEmpty()) {
+            if (sign.getLine(1).trim().isEmpty() || player.isFlying()) {
                 String levelStr = ru.nextLevelFor(player);
                 updateTraining(block, sign, levelStr, ru.levelCost(levelStr));
                 return;
             }
+
             PlayerInventory inventory = player.getInventory();
             String[] line1 = sign.getLine(1).split(" +", 2);
             String[] line2 = sign.getLine(2).split(" +", 2);
@@ -146,10 +150,12 @@ public enum RankSign {
             }
 
             Reward reward = level.getReward(sublevel);
+            System.out.println("Reward " + reward);
             if (reward.getNumber() > 0) {
-                if (!canAdd(inventory, reward.getNumber(), reward.getCommodity()))
+                if (!canAdd(inventory, reward.getNumber(), reward.getCommodity())) {
                     player.sendMessage("§4Not enough space for the reward of " + reward.getCommodity().getName());
-                return;
+                    return;
+                }
             }
 
             remove(inventory, toRemove, toRemoveComm);
@@ -186,6 +192,8 @@ public enum RankSign {
             }
         }
     };
+
+    public static final int MAX_STACK = 99;
 
     private static void updateTraining(Block block, Sign sign, String levelStr, String levelCost) {
         sign.setLine(1, levelStr);
@@ -232,9 +240,9 @@ public enum RankSign {
         for (ItemStack itemStack : inventory.getContents()) {
             int free = 0;
             if (itemStack == null) {
-                free = 64;
+                free = MAX_STACK;
             } else if (itemStack.getData().equals(materialData)) {
-                free = Math.max(0, 64 - itemStack.getAmount());
+                free = Math.max(0, MAX_STACK - itemStack.getAmount());
             }
             available += free;
             if (available >= toAdd)
@@ -266,29 +274,35 @@ public enum RankSign {
 
     static void add(PlayerInventory inventory, int toAdd, Commodity toAddComm) {
         MaterialData materialData = toAddComm.getMaterialData();
-        for (ItemStack itemStack : inventory.getContents()) {
-            if (itemStack != null
-                    && itemStack.getData().equals(materialData)) {
+        if (toAddComm.getEnchant().isEmpty()) {
+            for (ItemStack itemStack : inventory.getContents()) {
+                if (itemStack != null
+                        && itemStack.getData().equals(materialData)) {
 
-                int amount = itemStack.getAmount();
-                int free = Math.min(64 - amount, toAdd);
-                if (free > 0) {
-                    amount += free;
-                    toAdd -= free;
-                    inventory.remove(itemStack);
-                    itemStack.setAmount(amount);
-                    inventory.addItem(itemStack);
+                    int amount = itemStack.getAmount();
+                    int free = Math.min(MAX_STACK - amount, toAdd);
+                    if (free > 0) {
+                        amount += free;
+                        toAdd -= free;
+                        inventory.remove(itemStack);
+                        itemStack.setAmount(amount);
+                        inventory.addItem(itemStack);
+                    }
+                    if (toAdd <= 0)
+                        return;
                 }
-                if (toAdd <= 0)
-                    return;
             }
         }
 
         while (toAdd > 0) {
             ItemStack is = new ItemStack(materialData.getItemType());
             is.setData(materialData);
+            for (Map.Entry<Enchantment, Long> entry : toAddComm.getEnchant().entrySet()) {
+                System.out.println("... adding " + entry);
+                is.addUnsafeEnchantment(entry.getKey(), entry.getValue().intValue());
+            }
 
-            int free = Math.min(99, toAdd);
+            int free = Math.min(MAX_STACK, toAdd);
             if (free > 0) {
                 toAdd -= free;
                 is.setAmount(free);

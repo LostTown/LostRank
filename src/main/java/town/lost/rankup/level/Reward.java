@@ -33,4 +33,9 @@ public class Reward {
     public Commodity getCommodity() {
         return commodity;
     }
+
+    @Override
+    public String toString() {
+        return "Reward{ " + number + " " + commodity + '}';
+    }
 }

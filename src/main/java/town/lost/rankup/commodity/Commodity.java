@@ -2,7 +2,12 @@ package town.lost.rankup.commodity;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.material.MaterialData;
+import town.lost.rankup.enchantments.Enchantments;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by peter on 28/01/16.
@@ -16,6 +21,7 @@ public class Commodity {
     private final double rarity;
     private final int max;
     private final boolean currency;
+    private final Map<Enchantment, Long> enchant;
 
     public Commodity(String name, ConfigurationSection cs, int id) {
         this.name = name;
@@ -30,6 +36,9 @@ public class Commodity {
         max = cs.getInt("max", 64);
         rarity = cs.getDouble("rarity", 1.0);
         currency = cs.getBoolean("currency", false);
+        enchant = Enchantments.ENCHANTMENTS.keySet().stream()
+                .filter(cs::isLong)
+                .collect(Collectors.toMap(Enchantments::getEnchantment, cs::getLong));
     }
 
     public String getName() {
@@ -76,10 +85,15 @@ public class Commodity {
                 ", materialData=" + materialData +
                 ", buyPrice=" + buyPrice +
                 ", sellPrice=" + sellPrice +
+                (enchant.isEmpty() ? "" : ", enchant=" + enchant) +
                 '}';
     }
 
     public boolean isCurrency() {
         return currency;
+    }
+
+    public Map<Enchantment, Long> getEnchant() {
+        return enchant;
     }
 }
