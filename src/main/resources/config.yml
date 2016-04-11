@@ -347,3 +347,6 @@ commodities:
     material: BEDROCK
     buy: 10000
     rarity: 0.5
+  TNT:
+    material: TNT
+    buy: 100.0
