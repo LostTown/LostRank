@@ -59,15 +59,15 @@ levels:
     - 9 Obsidian
     - 10 Bookshelf
     - 1 IronChestplate
-    - 1.Bow
-    - 1.DiamondPickaxe
+    - 1 Bow
+    - 1 DiamondPickaxe
   Expert:
     cost: 10
     increment: 6
     commodity: GoldIngot
     max: 4
     rewards:
-    - 5 Diamond
+    - 8 Diamond
     - 8 Chest
     - 10 obsidian
     - 1 IronLeggings
@@ -107,7 +107,7 @@ levels:
     increment: 2
     commodity: EmeraldBlock
     max: 5
-    reward:
+    rewards:
     - 1 GodlyPickaxe
     - 1 GodlyAxe
     - 1 GodlyShovel
@@ -118,6 +118,7 @@ levels:
     increment: 4
     commodity: EmeraldBlock
     max: 5
+    rewards:
     - 1 TitanHelmet
     - 1 TitanBoots
     - 1 TitanLeggings
@@ -359,7 +360,7 @@ commodities:
     material: TNT
     buy: 100.0
   RedstoneTorch:
-    material: REDSTONE_TORCH
+    material: REDSTONE_TORCH_ON
     buy: 4.0
   Dispenser:
     material: DISPENSER
@@ -370,61 +371,61 @@ commodities:
   StonePickaxeE2:
     material: STONE_PICKAXE
     efficiency: 2
-  IronPickaxeE2:
+  IronPickaxe:
     material: IRON_PICKAXE
     efficiency: 2
-  IronBootsU2:
+  IronBoots:
     material: IRON_BOOTS
-  IronHelmetP1:
+  IronHelmet:
     material: IRON_HELMET
-  IronChestplateP3U1:
+  IronChestplate:
     material: IRON_CHESTPLATE
     protection: 3
     unbreaking: 1
-  GoldChestplateU4P2:
+  GoldChestplate:
     material: GOLD_CHESTPLATE
     unbreaking: 4
     protection: 2
-  DiamondPickaxeE2:
+  DiamondPickaxe:
     material: DIAMOND_PICKAXE
     efficiency: 2
-  BowP1:
+  Bow:
     material: BOW
     power: 1
-  IronLeggingsP3:
+    flame: 1
+  IronLeggings:
     material: IRON_CHESTPLATE
     protection: 3
-  DiamondHelmetP1:
+  DiamondHelmet:
     material: DIAMOND_HELMET
     protection: 1
-  DiamondBootsP1:
+  DiamondBoots:
     material: DIAMOND_BOOTS
     protection: 1
-  DiamondLeggingsP1:
+  DiamondLeggings:
     material: DIAMOND_LEGGINGS
     protection: 1
-  DiamondChestplateP1:
+  DiamondChestplate:
     material: DIAMOND_CHESTPLATE
-    Protection: 1
+    protection: 1
   Wood:
     material: LOG
     sell: 6.0
     buy: 8.0
   XPBottle:
-    material: EXPERIENCEBOTTLE
+    material: EXP_BOTTLE
   BlackSuit:
     material: LEATHER_CHESTPLATE
     protection: 10
     unbreaking: 10
-  BlackSuit:
-    material: LEATHER_HELMET
-    protection: 10
-    unbreaking: 10    
-  BlackSuit:
+  PresidentHead:
+    material: SKULL_ITEM
+    protection: 15
+  BlackTrousers:
     material: LEATHER_LEGGINGS
     protection: 10
     unbreaking: 10
-  BlackSuit:
+  BlackShoes:
     material: LEATHER_BOOTS
     protection: 10
     unbreaking: 10
@@ -440,7 +441,16 @@ commodities:
     unbreaking: 4
     protection: 2
   TheUltimateItem:
-    material: DEADBUSH
+    material: DEAD_BUSH
+    sharpness: 10
+    fire_aspect: 10
+    smite: 10
+    bane_of_arthropods: 10
+    knockback: 3
+    fire_aspect: 10
+    looting: 10
+    efficiency: 10
+    unbreaking: 10
   TitanHelmet:
     material: DIAMOND_HELMET
     protection: 15
@@ -470,12 +480,12 @@ commodities:
     fortune: 5
     efficiency: 10
   GodlyHoe:
-    material: DIAMONDHOE
+    material: DIAMOND_HOE
     unbreaking: 7
     fortune: 5
     efficiency: 10
   GodlyShovel:
-    material: DIAMOND_SHOVEL
+    material: DIAMOND_SPADE
     unbreaking: 7
     fortune: 5
     efficiency: 10
@@ -488,6 +498,18 @@ commodities:
     buy: 350
     sell: 400
     rarity: 0.1
+  Bookshelf:
+    material: BOOKSHELF
+    buy: 90
+  Diamond:
+    material: DIAMOND
+  Chest:
+    material: CHEST
+    buy: 10
+  Shield:
+    material: SHIELD
+    unbreaking: 1
+
 ## enchantments ##
 # protection: 1 - 4
 # fire_protection: 1 - 4
