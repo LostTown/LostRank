@@ -11,14 +11,15 @@ levels:
      - 5 BeetrootSeeds
      - 33 Wheat
      - 16 Carrot
-#1.5 glowstone
-#2.9 cooked chicken
-#3.15 Iron ore
   TorchBearer:
     cost: 32
     increment: 10
     commodity: Torch
     max: 3
+    rewards:
+     - 5 Glowstone
+     - 9 CookedChicken
+     - 15 IronOre
 #1.1 stone pickaxe with unbreaking 1
 #2.1 stone pickaxe efficiency 1
 #3.1 iron pick with efficiency 2
@@ -202,6 +203,14 @@ commodities:
     buy: 10.0
     rarity: 0.5
     max: 32
+  Glowstone:
+    material: GLOWSTONE
+    sell: 25.0
+    buy: 30.0
+  IronOre:
+    material: IRON_ORE
+    sell: 20.0
+    buy: 26.0
   IronIngot:
     material: IRON_INGOT
     sell: 30.0
@@ -302,6 +311,9 @@ commodities:
   Bread:
     material: BREAD
     buy: 9.0
+  CookedChicken:
+    material: COOKED_CHICKEN
+    buy: 10.0
   Potato:
     material: POTATO_ITEM
     buy: 20
