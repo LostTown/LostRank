@@ -46,9 +46,9 @@ public enum Enchantments {
     }
 
     public static void main(String[] args) {
-        net.minecraft.server.v1_9_R1.Enchantment.f();
+        net.minecraft.server.v1_10_R1.Enchantment.f();
         for (String s : ENCHANTMENTS.keySet()) {
-            net.minecraft.server.v1_9_R1.Enchantment e = net.minecraft.server.v1_9_R1.Enchantment.b(s);
+            net.minecraft.server.v1_10_R1.Enchantment e = net.minecraft.server.v1_10_R1.Enchantment.b(s);
             System.out.println("# " + s + ": " + e.getStartLevel() + " - " + e.getMaxLevel());
         }
     }
