@@ -72,28 +72,32 @@ public class Commodities {
                 continue;
             if (sell.getRarity() < 1 && sell.getRarity() < rand.nextFloat())
                 continue;
-            double buyP = 1.1 + sog.noise(mx, mz, buy.getId(), 0.5, 0.5, true) * 0.4;
-            double sellP = 1.0 + sog.noise(mx, mz, sell.getId(), 0.5, 0.5, true) * 0.3;
+            double buyP = 1.0 + sog.noise(mx, mz, buy.getId(), 0.5, 0.5, true) * 0.4 + i / 10.0;
+            if (buy.getRarity() < 1)
+                buyP /= Math.sqrt(buy.getRarity() + 0.01);
+            double sellP = 1.0 + sog.noise(mx, mz, sell.getId(), 0.5, 0.5, true) * 0.4;
             int buyQ = (int) (size / buy.getBuyPrice() * buyP);
             int sellQ = (int) (size / sell.getSellPrice() * sellP);
             while (buyQ > buy.getMax() || (buyQ > 64 && sellQ > 64)) {
                 buyQ = (buyQ + 1) / 2;
                 sellQ = (sellQ + 1) / 2;
             }
-            if (buyQ > 64 && buyQ < 99)
+            if (buyQ > 64 && buyQ <= 99)
                 buyQ = 64;
             if (buyQ < 1 || buyQ > 64)
                 continue;
-            if (sellQ > 64 && sellQ < 99)
+            if (sellQ > 64 && sellQ <= 99)
                 sellQ = 64;
             if (sellQ < 1 || sellQ > 64)
                 continue;
             double buyV = buyQ * buy.getMidPrice();
             double sellV = sellQ * sell.getMidPrice();
             double ratio = Math.round(buyV / sellV * 1000) / 1e3;
-            if (ratio < 1.4 && i < 3)
+            if (ratio < 2 && i < 3)
                 continue;
-            if (ratio < 1. && i < 6)
+            if (ratio < 1.5 && i < 5)
+                continue;
+            if (ratio < 1.0 && i < 7)
                 continue;
             if (ratio < 0.8 && i < 10)
                 continue;

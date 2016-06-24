@@ -25,7 +25,7 @@ public class Commodity {
     private final double rarity;
     private final int max;
     private final boolean currency;
-    private final Map<Enchantment, Long> enchant;
+    private final Map<Enchantment, Integer> enchant;
 
     public Commodity(String name, ConfigurationSection cs, int id) {
         this.name = name;
@@ -41,8 +41,8 @@ public class Commodity {
         rarity = cs.getDouble("rarity", 1.0);
         currency = cs.getBoolean("currency", false);
         enchant = Enchantments.ENCHANTMENTS.keySet().stream()
-                .filter(cs::isLong)
-                .collect(Collectors.toMap(Enchantments::getEnchantment, cs::getLong));
+                .filter(cs::isSet)
+                .collect(Collectors.toMap(Enchantments::getEnchantment, cs::getInt));
         for (String s : cs.getKeys(false)) {
             if (!Enchantments.ENCHANTMENTS.keySet().contains(s) && !KEYS.contains(s)) {
                 System.out.println("Commodity: " + name + " has an attribute which is ignored: " + s);
@@ -102,7 +102,7 @@ public class Commodity {
         return currency;
     }
 
-    public Map<Enchantment, Long> getEnchant() {
+    public Map<Enchantment, Integer> getEnchant() {
         return enchant;
     }
 }

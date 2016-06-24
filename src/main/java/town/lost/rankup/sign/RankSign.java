@@ -297,9 +297,9 @@ public enum RankSign {
         while (toAdd > 0) {
             ItemStack is = new ItemStack(materialData.getItemType());
             is.setData(materialData);
-            for (Map.Entry<Enchantment, Long> entry : toAddComm.getEnchant().entrySet()) {
+            for (Map.Entry<Enchantment, Integer> entry : toAddComm.getEnchant().entrySet()) {
                 System.out.println("... adding " + entry);
-                is.addUnsafeEnchantment(entry.getKey(), entry.getValue().intValue());
+                is.addUnsafeEnchantment(entry.getKey(), entry.getValue());
             }
 
             int free = Math.min(MAX_STACK, toAdd);
