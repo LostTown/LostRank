@@ -89,7 +89,8 @@ public enum RankSign {
             player.sendMessage("§2You received  " + toAdd + " " + toAddComm.getName()
                     + " for §6" + toRemove + " " + toRemoveComm.getName());
 
-            updateBarter(block, sign, ru);
+            if (Math.random() < 0.2)
+                updateBarter(block, sign, ru);
         }
     },
     DAYTIME {
