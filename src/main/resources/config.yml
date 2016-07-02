@@ -246,7 +246,7 @@ commodities:
   Stone:
     material: STONE
     data: 0
-    sell: 1.5
+    sell: 3
   Fence:
     material: FENCE
     sell: 1.5
@@ -301,9 +301,10 @@ commodities:
   Glass:
     material: GLASS
     sell: 3.0
-  Wood:
+  Log:
     material: WOOD
-    sell: 0.5
+    buy: 1.5
+    sell: 2
   Gravel:
     material: GRAVEL
     sell: 0.5

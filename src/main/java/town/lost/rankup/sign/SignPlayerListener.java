@@ -14,6 +14,8 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
 
 public class SignPlayerListener implements Listener {
     private static final Logger LOGGER = Logger.getLogger(SignBlockListener.class.getName());
@@ -50,8 +52,12 @@ public class SignPlayerListener implements Listener {
         final Material mat = block.getType();
         if (mat == Material.SIGN_POST || mat == Material.WALL_SIGN) {
             Sign sign = (Sign) block.getState();
-            final String csign = sign.getLine(0);
+            String csign = sign.getLine(0);
             LOGGER.info("onSignPlayerInteract " + sign + " '" + csign + "'");
+            if (isEmpty(csign)) {
+                if (isEmpty(sign.getLine(1)) && isEmpty(sign.getLine(2)))
+                    sign.setLine(0, csign = "§1(Barter)");
+            }
             if (csign.startsWith("§1(") && csign.endsWith(")")) {
                 String name = csign.substring(3, csign.length() - 1).toUpperCase();
                 LOGGER.info("... name " + name);
