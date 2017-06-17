@@ -323,6 +323,9 @@ commodities:
     max: 16
 
   # buy items
+  Leather:
+    material: LEATHER
+    buy: 5.0
   Bread:
     material: BREAD
     buy: 9.0

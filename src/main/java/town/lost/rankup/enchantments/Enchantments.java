@@ -39,6 +39,8 @@ public enum Enchantments {
         put(("luck_of_the_sea"), Enchantment.LUCK);
         put(("lure"), Enchantment.LURE);
         put(("mending"), Enchantment.MENDING);
+        put(("binding_curse"), Enchantment.BINDING_CURSE);
+        put(("vanishing_curse"), Enchantment.VANISHING_CURSE);
     }};
 
     public static Enchantment getEnchantment(String name) {
@@ -46,9 +48,9 @@ public enum Enchantments {
     }
 
     public static void main(String[] args) {
-        net.minecraft.server.v1_10_R1.Enchantment.f();
+        net.minecraft.server.v1_12_R1.Enchantment.g();
         for (String s : ENCHANTMENTS.keySet()) {
-            net.minecraft.server.v1_10_R1.Enchantment e = net.minecraft.server.v1_10_R1.Enchantment.b(s);
+            net.minecraft.server.v1_12_R1.Enchantment e = net.minecraft.server.v1_12_R1.Enchantment.b(s);
             System.out.println("# " + s + ": " + e.getStartLevel() + " - " + e.getMaxLevel());
         }
     }

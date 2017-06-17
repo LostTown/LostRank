@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>town.lost</groupId>
     <artifactId>lost-rankup</artifactId>
-    <version>0.4.110.1</version>
+    <version>0.6.0</version>
     <description>Lost Town Rankup</description>
     <name>Lost Town - Rankup</name>
 
@@ -12,9 +12,9 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>craftbukkit</artifactId>
-            <version>1.10</version>
+            <version>1.12</version>
             <scope>system</scope>
-            <systemPath>${user.home}/Spigot/craftbukkit-1.10.jar</systemPath>
+            <systemPath>${user.home}/Spigot/craftbukkit-1.12.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
